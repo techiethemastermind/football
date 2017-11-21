@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="row center">
+    <h1 *ngIf="!option.displayType">Ball Possession Heat Map (Replay Mode)</h1>
+    <h1 *ngIf="option.displayType">Ball Possession Heat Map (Live Mode)</h1>
+  </div>
+
+  <div class="row chart-content">
+    <div class="widget chart3-wrap move-center">
+      <div class="team-selector right">
+        <label>Team: </label>
+        <select [(ngModel)]="selected_team.right" (change)="onChangeTeam('right')">
+          <option *ngFor="let team of teams" [value]="team.id" [attr.selected]="team.id==selected_team.right ? true : null">{{team.name}}</option>
+        </select>
+      </div>
+
+      <div class="clear-fix"></div>
+
+      <div class="chart3-mob-wrap">
+        <div class="chart3">
+          <div id="canvas-wrap">
+            <canvas id="myCanvas" #myCanvas width="800" height="500" style="background: green;"></canvas>
+          </div>
+          <svg width="800" height="500">
+            <g class="yard" stroke-width="2" stroke="rgb(238, 238, 238)" stroke-opacity="0.8" fill="none">
+              <rect height="500" width="800" x="0" y="0" rx="0" ry="0" stroke="none"></rect>
+              <g class="field" transform="translate(10,10)">
+                <rect width="780" height="480"></rect>
+                <path d="M 390 0 L 390 480"></path>
+                <path d="M 540 0 L 540 480" stroke-dasharray="18,15" stroke-width="3"></path>
+                <path d="M 240 0 L 240 480" stroke-dasharray="18,15" stroke-width="3"></path>
+                <circle cx="390" cy="240" r="80"></circle>
+                <circle cx="390" cy="240" r="3" fill="rgb(238, 238, 238)"></circle>
+                <path d="M 1 120 L 100 120 L 100 360 L 1 360"></path>
+                <path d="M 1 180 L 50 180 L 50 300 L 1 300"></path>
+                <path d="M -1 210 L -5 210 L -5 270 L -1 270"></path>
+                <path d="M 779 120 L 670 120 L 670 360 L 779 360"></path>
+                <path d="M 779 180 L 730 180 L 730 300 L 779 300"></path>
+                <path d="M 781 210 L 785 210 L 785 270 L 781 270"></path>
+                <path d="M 10 1 A 10 10 0 0 1 1 10"></path>
+                <path d="M 770 1 A 10 10 0 0 0 779 10"></path>
+                <path d="M 1 470 A 10 10 0 0 1 10 479"></path>
+                <path d="M 770 479 A 10 10 0 0 1 779 470"></path>
+              </g>
+            </g>
+          </svg>
+          <div class="team-logo">
+            <img class="right" align="right" [src]="selected_team.logo_r" width="65">
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-action" (mousemove)="onMouseMove($event)">
+        <div class="time-action move-center">
+          <div class="row action">
+            <div class="col-md-4">
+              <div class="live-time" style="color: white;">
+                <h4 *ngIf="!option.displayType" class="center">Replay Mode:</h4>
+                <h4 *ngIf="option.displayType" class="center">Live Mode:</h4>
+              </div>
+              <div class="play" *ngIf="option.displayType">
+                <img src="{{ctrlImageUrl}}" (click)="ctrlRealTime()">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="live-time col-md-12">
+                <div class="col-md-12 center">
+                  <span>Game Time: {{temp.livetime}}</span>
+                </div>
+                <div class="col-md-6">
+                  <span *ngIf="!option.displayType">Simulation Mode: Replay</span>
+                  <span *ngIf="option.displayType">Simulation Mode: Live</span>
+                  <br />
+                  <span>Game Status: {{temp.gamepos}}</span>
+                  <br />
+                </div>
+                <div class="col-md-6" *ngIf="!option.displayType">
+                  <span>First Extra: {{sliderFirstExtra}} Mins</span>
+                  <br />
+                  <span>Second Extra: {{sliderSecondExtra}} Mins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!option.displayType">
+            <div class="time-slider first">
+              <div (click)="onClick($event, 'first')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderFirstExtra * firstSliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderFirstLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderFirstLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'first')" (mousedown)="onMouseDown($event, 'first')">
+                <span class="selected-time">{{sliderFirstValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderFirstExtra}} Min</span>
+              </div>
+            </div>
+            <div class="time-slider second">
+              <div (click)="onClick($event, 'second')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderSecondExtra * secondsliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderSecondLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderSecondLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'sencond')" (mousedown)="onMouseDown($event, 'second')">
+                <span class="selected-time">{{sliderSecondValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderSecondExtra}} Min</span>
+              </div>
+            </div>
+          </div>
+          <div class="clear-fix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

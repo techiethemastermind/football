@@ -1,0 +1,225 @@
+<div class="container">
+  <div class="row chart-content">
+    <div class="col-md-12 center">
+      <div class="widget chart8-wrap move-center">
+        <div class="row">
+          <h3>Match Facts</h3>
+        </div>
+        <div class="row chart8-header">
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <div class="team-logo">
+              <img src="./assets/icons/1.png">
+            </div>
+            <div class="team-selector">
+              <span>Dulwich Team A</span>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <h1>{{goals.left}} - {{goals.right}}</h1>
+          </div>
+          <div class="col-md-3">
+            <div class="team-logo">
+              <img src="./assets/icons/2.png">
+            </div>
+            <div class="team-selector">
+              <span>Dulwich Team B</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mob-row">
+          <div class="col-xs-6 col-sm-6 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="team-selector">
+              <span>Dulwich Team A</span>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="team-selector">
+              <span>Dulwich Team B</span>
+            </div>
+          </div>
+        </div>
+        <div class="row chart8-body">
+          <!-- Goals -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Goals</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Shots -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Shots</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Shots On Target -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Shots On Target</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Possession -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Possession</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Tackles -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Tackles</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Offsides -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Offsides</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Corners -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Corners</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Shot Accuracy -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Shot Accuracy</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+          <!-- Pass Accuracy -->
+          <div class="row cls-val">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="l-val">0</span>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <span>Pass Accuracy</span>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <span class="r-val">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="row chart8-footer"></div>
+      </div>
+      <div class="widget chart8-wrap move-center">
+        <div class="bottom-action" (mousemove)="onMouseMove($event)">
+          <div class="time-action move-center">
+            <div class="row action">
+              <div class="col-md-4">
+                <div class="live-time" style="color: white;">
+                  <h4 *ngIf="!displayType" class="center">Replay Mode:</h4>
+                  <h4 *ngIf="displayType" class="center">Live Mode:</h4>
+                </div>
+                <div class="play" *ngIf="displayType">
+                  <img src="{{ctrlImageUrl}}" (click)="ctrlRealTime()">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="live-time col-md-12">
+                  <div class="col-md-12 center">
+                    <span>Game Time: {{temp.livetime}}</span>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span *ngIf="!displayType">Simulation Mode: Replay</span>
+                    <span *ngIf="displayType">Simulation Mode: Live</span>
+                    <br />
+                    <span>Game Status: {{temp.gamepos}}</span>
+                    <br />
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6" *ngIf="!displayType">
+                    <span>First Extra: {{sliderFirstExtra}} Mins</span>
+                    <br />
+                    <span>Second Extra: {{sliderSecondExtra}} Mins</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!displayType">
+              <div class="time-slider first">
+                <div (click)="onClick($event, 'first')">
+                  <div class="time-bar noSelected">&nbsp;</div>
+                  <div class="time-bar extra" [ngStyle]="{'width': sliderFirstExtra * firstSliderRatio + 'px'}"></div>
+                  <div class="time-bar selected" [ngStyle]="{'width': sliderFirstLeft + 'px'}">&nbsp;</div>
+                  <div class="time-bar-bottom">&nbsp;</div>
+                </div>
+                <div class="time-selector" [ngStyle]="{'left': sliderFirstLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'first')" (mousedown)="onMouseDown($event, 'first')">
+                  <span class="selected-time">{{sliderFirstValue}}</span>
+                </div>
+                <div class="time-fix">
+                  <span class="left-show">0 Min</span>
+                  <span class="mid-show"> 22.5 Min</span>
+                  <span class="right-show">{{ 45 + sliderFirstExtra}} Min</span>
+                </div>
+              </div>
+              <div class="time-slider second">
+                <div (click)="onClick($event, 'second')">
+                  <div class="time-bar noSelected">&nbsp;</div>
+                  <div class="time-bar extra" [ngStyle]="{'width': sliderSecondExtra * secondsliderRatio + 'px'}"></div>
+                  <div class="time-bar selected" [ngStyle]="{'width': sliderSecondLeft + 'px'}">&nbsp;</div>
+                  <div class="time-bar-bottom">&nbsp;</div>
+                </div>
+                <div class="time-selector" [ngStyle]="{'left': sliderSecondLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'sencond')" (mousedown)="onMouseDown($event, 'second')">
+                  <span class="selected-time">{{sliderSecondValue}}</span>
+                </div>
+                <div class="time-fix">
+                  <span class="left-show">0 Min</span>
+                  <span class="mid-show"> 22.5 Min</span>
+                  <span class="right-show">{{ 45 + sliderSecondExtra}} Min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

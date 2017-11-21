@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row center">
+    <h1 *ngIf="!displayType">Spider Chart (Replay Mode)</h1>
+    <h1 *ngIf="displayType">Spider Chart (Live Mode)</h1>
+  </div>
+  <div id="tooltip" [attr.class]="tip.class" [ngStyle]="{'left': tip.x + 'px', 'top': tip.y + 'px'}">
+    <p><img [src]="tip.src"><span id="name">{{tip.name}}</span></p>
+    <p>Number: <span id="number">{{tip.number}}</span></p>
+    <p>Position: <span id="pos">{{tip.position}}</span></p>
+    <p>
+      <span *ngIf="tip.sub === 0">Substitutes: No</span>
+      <span *ngIf="tip.sub === 1">Substitutes: Yes</span>
+    </p>
+  </div>
+  <div class="row chart-content">
+    <div class="col-md-12">
+      <div class="widget chart6-wrap move-center">
+        <div class="widget team team-left">
+          <div class="team-selector">
+            <label>Team: </label> Dulwich Team A
+          </div>
+          <div class="player">
+            <label>Players</label>
+            <div id="leftTip"></div>
+            <ul class="main">
+              <li *ngFor="let player of players.left; let i = index;" (click)="onClickPlayer(player, i, 'left');" >
+                <span class="player-circle" [ngStyle]="{'background-color': blackColor(i, 'left')}"></span>{{ player.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="widget chart6">
+          <div style="display: block">
+            <canvas baseChart width="500" height="500"
+                    [datasets]="radarChartData"
+                    [labels]="radarChartLabels"
+                    [chartType]="radarChartType"
+                    [options]="radarChartOptions"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+        <div class="widget team team-right">
+          <div class="team-selector">
+            <label>Team: </label> Dulwich Team B
+          </div>
+          <div class="player">
+            <label>Players</label>
+            <ul class="main">
+              <li *ngFor="let player of players.right; let i = index;" (click)="onClickPlayer(player, i, 'right');">
+                <span class="player-circle" [ngStyle]="{'background-color': blackColor(i, 'right')}"></span>{{ player.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-action" (mousemove)="onMouseMove($event)">
+          <div class="time-action move-center">
+            <div class="row action">
+              <div class="col-md-4">
+                <div class="live-time" style="color: white;">
+                  <h4 *ngIf="!displayType" class="center">Replay Mode:</h4>
+                  <h4 *ngIf="displayType" class="center">Live Mode:</h4>
+                </div>
+                <div class="play" *ngIf="displayType">
+                  <img src="{{ctrlImageUrl}}" (click)="ctrlRealTime()">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="live-time col-md-12">
+                  <div class="col-md-12 center"><span>Game Time: {{temp.livetime}}</span></div>
+                  <div class="col-md-6">
+                    <span *ngIf="!displayType">Simulation Mode: Replay</span>
+                    <span *ngIf="displayType">Simulation Mode: Live</span><br />
+                    <span>Game Status: {{temp.gamepos}}</span><br />
+                  </div>
+                  <div class="col-md-6" *ngIf="!displayType">
+                    <span>First Extra: {{sliderFirstExtra}} Mins</span><br />
+                    <span>Second Extra: {{sliderSecondExtra}} Mins</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!displayType">
+              <div class="time-slider first">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderFirstExtra * firstSliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderFirstLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+                <div class="time-selector" [ngStyle]="{'left': sliderFirstLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'first')"
+                     (mousedown)="onMouseDown($event, 'first')" ><span class="selected-time">{{sliderFirstValue}}</span></div>
+                <div class="time-fix">
+                  <span class="left-show">0 Min</span>
+                  <span class="mid-show"> 22.5 Min</span>
+                  <span class="right-show">{{ 45 + sliderFirstExtra}} Min</span>
+                </div>
+              </div>
+              <div class="time-slider second">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderSecondExtra * secondsliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderSecondLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+                <div class="time-selector" [ngStyle]="{'left': sliderSecondLeft - 13 + 'px'}" (mouseup)="onMouseUp($event, 'sencond')"
+                     (mousedown)="onMouseDown($event, 'second')" ><span class="selected-time">{{sliderSecondValue}}</span></div>
+                <div class="time-fix">
+                  <span class="left-show">0 Min</span>
+                  <span class="mid-show"> 22.5 Min</span>
+                  <span class="right-show">{{ 45 + sliderSecondExtra}} Min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

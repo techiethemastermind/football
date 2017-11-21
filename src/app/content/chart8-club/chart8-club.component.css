@@ -1,0 +1,95 @@
+.move-center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.widget{
+    float: left;
+}
+.chart8-wrap{
+    max-width: 940px;
+    width: 100%;
+    /*background-color: #0d222d;*/
+    background-color: #f0f8ff;
+    border-radius: 3px;
+    /*color: #fff;*/
+    color: #00547e;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 2px black;
+    border-radius: 0px;
+}
+/*.chart8-wrap h1, .chart8-wrap h3{
+    color: #fff;
+}*/
+.chart8-wrap h3{
+    margin-top: 10px;
+    color: #00547e;
+}
+.chart8-wrap .row{
+    margin: 0;
+}
+.chart8-header{
+    padding: 20px 0;
+    /*background-color: #081a23;*/
+    background-color: #e5f3ff;
+}
+.chart8-header h1{
+    font-size: 50px;
+    font-weight: 600;
+}
+.chart8-body{
+    padding-bottom: 20px;
+}
+.chart8-body .row{
+    padding: 5px 0;
+}
+.chart8-body .row:hover{
+    background-color: #2a556b !important;
+    cursor: pointer;
+    color: #fff;
+}
+.chart8-body .row:nth-child(2n+1){
+    /*background-color: #122c3a;*/
+    background-color: #d6ecff;
+}
+.chart8-body span{
+    font-size: 16px;
+    font-weight: 600;
+}
+.team-selector{
+    margin-top: 10px;
+}
+.team-selector select{
+    /*background-color: #081a23;*/
+    font-size: 16px;
+    padding: 2px 5px;
+}
+input[type=radio] {
+    margin-top: 10px;
+}
+.mob-row {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .chart8-header .team-selector {
+        display: none;
+    }
+    .chart8-header div {
+        padding: 0;
+    }
+    .mob-row {
+        display: block;
+        padding-bottom: 10px;
+        background-color: #e5f3ff;
+    }
+    .mob-row > div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 380px) {
+    .mob-row > div {
+        width: 100%;
+    }
+}

@@ -1,0 +1,44 @@
+div.match-widget h1{
+    text-align: center;
+}
+div.match-widget .col-md-3, div.match-widget .col-md-6{
+    padding-left: 0;
+    padding-right: 0;
+}
+div.match-widget span, div.match-widget p{
+    color: #000;
+}
+.nav-area{
+    margin-bottom: 20px;
+}
+.nav-area button{
+    width: 100%;
+    border-radius: inherit;
+}
+.header-area .team-logo{
+    text-align: center;
+}
+.chart-area .col-md-6{
+    padding: 0;
+    background-color: #d9edf7;
+}
+.chart .bar{
+    font: 16px sans-serif;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+}
+.chart .title{
+    margin: 15px 0 0;
+    text-align: center;
+}
+.chart .right{
+    text-align: right;
+    background-color: #d62728;
+}
+.chart .left{
+    text-align: left;
+    float: right;
+    background-color: #1f77b4;
+}

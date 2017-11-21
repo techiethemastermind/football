@@ -1,0 +1,180 @@
+<div class="container">
+  <div class="row center">
+    <h1 *ngIf="!displayType">Player's Ball Touch (Replay Mode)</h1>
+    <h1 *ngIf="displayType">Player's Ball Touch (Live Mode)</h1>
+  </div>
+  <div id="tooltip" [attr.class]="tip.class" [ngStyle]="{'left': tip.x + 'px', 'top': tip.y + 'px'}">
+    <p>
+      <img [src]="tip.src">
+      <span id="name">{{tip.name}}</span>
+    </p>
+    <p>Number:
+      <span id="number">{{tip.number}}</span>
+    </p>
+    <p>Position:
+      <span id="pos">{{tip.position}}</span>
+    </p>
+    <p>
+      <span *ngIf="tip.sub === 0">Substitutes: No</span>
+      <span *ngIf="tip.sub === 1">Substitutes: Yes</span>
+    </p>
+  </div>
+  <div class="mob-action row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button class="btn btn-success" (click)="show_team('left')">{{clsshow.lefticon}}</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+      <button class="btn btn-success" (click)="show_team('right')">{{clsshow.righticon}}</button>
+    </div>
+  </div>
+  <div class="row chart-content">
+    <div class="widget chart5-wrap move-center">
+      <div class="widget team team-left" [ngClass]="clsshow.left">
+        <div class="team-selector">
+          <label>Team: </label> Dulwich Team A
+        </div>
+        <div class="team-selector">
+          <input type="checkbox" [checked]="selected_all_left" (change)="selected_all_left = !selected_all_left" (click)="onChangeAll('left')">
+          <label *ngIf="selected_all_left">: Deselect All </label>
+          <label *ngIf="!selected_all_left">: Select All </label>
+        </div>
+        <div class="player">
+          <label>Players</label>
+          <div id="leftTip"></div>
+          <ul class="main">
+            <li *ngFor="let player of players.left; let i = index;" (click)="onClickPlayer(player, i, 'left');">
+              <span class="player-rect" [ngStyle]="{'background-color': blackColor(i, 'left')}"></span>{{ player.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="widget chart5">
+        <svg width="500" height="700" fill="green">
+          <g class="yard" stroke-width="2" stroke="rgb(238, 238, 238)" stroke-opacity="0.8" fill="none">
+            <rect height="700" width="500" x="0" y="0" rx="0" ry="0" stroke="none" fill="green"></rect>
+            <g class="field" transform="translate(10,10)">
+              <rect width="480" height="680"></rect>
+              <path d="M 0 340 L 480 340"></path>
+              <path d="M 0 490 L 480 490" stroke-dasharray="18,15" stroke-width="3"></path>
+              <path d="M 0 190 L 480 190" stroke-dasharray="18,15" stroke-width="3"></path>
+              <circle cx="240" cy="340" r="80"></circle>
+              <circle cx="240" cy="340" r="3" fill="rgb(238, 238, 238)"></circle>
+              <path d="M 120 1 L 120 100 L 360 100 L 360 1"></path>
+              <path d="M 180 1 L 180 50 L 300 50 L 300 1"></path>
+              <path d="M 210 -1 L 210 -5 L 270 -5 L 270 -1"></path>
+              <path d="M 120 679 L 120 570 L 360 570 L 360 679"></path>
+              <path d="M 180 679 L 180 630 L 300 630 L 300 679"></path>
+              <path d="M 210 681 L 210 685 L 270 685 L 270 681"></path>
+              <path d="M 10 1 A 10 10 0 0 1 1 10"></path>
+              <path d="M 470 1 A 10 10 0 0 0 479 10"></path>
+              <path d="M 1 670 A 10 10 0 0 1 10 679"></path>
+              <path d="M 470 679 A 10 10 0 0 1 479 670"></path>
+              <g class="touch-left"></g>
+              <g class="touch-right"></g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="widget team team-right" [ngClass]="clsshow.right">
+        <div class="team-selector">
+          <label>Team: </label> Dulwich Team B
+        </div>
+        <div class="team-selector">
+          <input type="checkbox" [checked]="selected_all_right" (change)="selected_all_right = !selected_all_right" (click)="onChangeAll('right')">
+          <label *ngIf="selected_all_left">: Deselect All </label>
+          <label *ngIf="!selected_all_left">: Select All </label>
+        </div>
+        <div class="player">
+          <label>Players</label>
+          <ul class="main">
+            <li *ngFor="let player of players.right; let i = index;" (click)="onClickPlayer(player, i, 'right');">
+              <span class="player-rect" [ngStyle]="{'background-color': blackColor(i, 'right')}"></span>{{ player.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-action" (mousemove)="onMouseMove($event)">
+        <div class="time-action move-center">
+          <div class="row action">
+            <div class="col-md-4">
+              <div class="live-time" style="color: white;">
+                <h4 *ngIf="!displayType" class="center">Replay Mode:</h4>
+                <h4 *ngIf="displayType" class="center">Live Mode:</h4>
+              </div>
+              <div class="play" *ngIf="displayType">
+                <img src="{{ctrlImageUrl}}" (click)="ctrlRealTime()">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="live-time col-md-12">
+                <div class="col-md-12 center">
+                  <span>Game Time: {{temp.livetime}}</span>
+                </div>
+                <div class="col-md-6">
+                  <span *ngIf="!displayType">Simulation Mode: Replay</span>
+                  <span *ngIf="displayType">Simulation Mode: Live</span>
+                  <br />
+                  <span>Game Status: {{temp.gamepos}}</span>
+                  <br />
+                </div>
+                <div class="col-md-6" *ngIf="!displayType">
+                  <span>First Extra: {{sliderFirstExtra}} Mins</span>
+                  <br />
+                  <span>Second Extra: {{sliderSecondExtra}} Mins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!displayType">
+            <div class="time-slider first" (mouseup)="onMouseUp($event, 'first')">
+              <div (click)="onClick($event, 'first')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderFirstExtra * firstSliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderFirstLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderFirstLeft - 13 + 'px'}" (mousedown)="onMouseDown($event, 'first')">
+                <span class="selected-time">{{sliderFirstValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderFirstExtra}} Min</span>
+              </div>
+            </div>
+            <div class="time-slider second" (mouseup)="onMouseUp($event, 'sencond')">
+              <div (click)="onClick($event, 'second')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderSecondExtra * secondsliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderSecondLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderSecondLeft - 13 + 'px'}" (mousedown)="onMouseDown($event, 'second')">
+                <span class="selected-time">{{sliderSecondValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderSecondExtra}} Min</span>
+              </div>
+            </div>
+          </div>
+          <!--
+          <div class="clear-fix"></div>
+          <div class="row" style="width: 800px;margin-left: -20px;">
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('Full')">Full Game</button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('First')">First Half Game</button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('Second')">Second Half Game</button>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

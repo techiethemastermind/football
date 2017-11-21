@@ -1,0 +1,47 @@
+.chart-content {
+    background-color: #f0f8ff;
+}
+.chart3-wrap{
+    max-width: 800px;
+    width: 100%;
+}
+.chart3{
+    position: relative;
+}
+.chart3 svg{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.team-selector{
+    margin-bottom: 10px;
+    color: #00547e;
+}
+.team-selector select{
+    max-width: 130px;
+    width: 100%;
+}
+.team-left {
+    float: left;
+}
+.team-right {
+    float: right;
+}
+.team-logo{
+    position: absolute;
+    padding: 20px;
+    width: 100%;
+    top: 0;
+}
+
+#canvas-wrap{
+    position: relative;
+}
+canvas, svg{
+    position: absolute;
+}
+@media screen and (max-width: 768px) {
+    .chart3-mob-wrap {
+        padding: 10px;
+    }
+}

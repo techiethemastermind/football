@@ -1,0 +1,274 @@
+<div class="container">
+  <h1 class="center">Home page</h1>
+  <div class="row">
+    <form>
+      <div class="col-sm-6 col-md-3">
+        <input type="radio" name="displayMode" [checked]="gameMode == 'league'" value="league" [(ngModel)]="gameMode"><label> League Mode</label>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <input type="radio" name="displayMode" [checked]="gameMode == 'club'" value="club" [(ngModel)]="gameMode"><label> Club Mode</label>
+      </div>
+    </form>
+  </div>
+
+  <!-- League Mode -->
+  <div *ngIf="gameMode === 'league'">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/pb_movement/normal">
+            <img src="./assets/images/thumb1.png">
+            <h4 class="center">Players & Ball Movement <br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/pb_movement/live">
+            <img src="./assets/images/thumb1.png">
+            <h4 class="center">Players & Ball Movement <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart2/normal">
+            <img src="./assets/images/thumb2.png">
+            <h4 class="center">Player's HeatMap <br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart2/live">
+            <img src="./assets/images/thumb2.png">
+            <h4 class="center">Player's HeatMap <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart1/normal">
+            <img src="./assets/images/thumb3.png">
+            <h4 class="center">Player Data Analysis <br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart1/live">
+            <img src="./assets/images/thumb3.png">
+            <h4 class="center">Player Data Analysis <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart3/normal">
+            <img src="./assets/images/thumb4.png">
+            <h4 class="center">Ball Possession HeatMaps <br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart3/live">
+            <img src="./assets/images/thumb4.png">
+            <h4 class="center">Ball Possession HeatMaps <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart5/normal">
+            <img src="./assets/images/thumb5.png">
+            <h4 class="center">Player Ball Touch<br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart5/live">
+            <img src="./assets/images/thumb5.png">
+            <h4 class="center">Player Ball Touch <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart7/normal">
+            <img src="./assets/images/thumb7.png">
+            <h4 class="center">Player Passes <br/> (Replay - League)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart7/live">
+            <img src="./assets/images/thumb7.png">
+            <h4 class="center">Player Passes <br/> (Live - League)</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart8/normal">
+                <img src="./assets/images/thumb8.png">
+                <h4 class="center">Match Facts <br/> (Replay - League)</h4>
+              </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart8/live">
+                <img src="./assets/images/thumb8.png">
+                <h4 class="center">Match Facts <br/> (Live - League)</h4>
+              </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Club Mode -->
+  <div *ngIf="gameMode === 'club'">
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/pb_club/normal">
+            <img src="./assets/images/thumb1.png">
+            <h4 class="center">Players & Ball Movement <br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/pb_club/live">
+            <img src="./assets/images/thumb1.png">
+            <h4 class="center">Players & Ball Movement <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart2_club/normal">
+            <img src="./assets/images/thumb2.png">
+            <h4 class="center">Player's HeatMap <br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart2_club/live">
+            <img src="./assets/images/thumb2.png">
+            <h4 class="center">Player's HeatMap <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart1_club/normal">
+            <img src="./assets/images/thumb3.png">
+            <h4 class="center">Player Data Analysis <br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart1_club/live">
+            <img src="./assets/images/thumb3.png">
+            <h4 class="center">Player Data Analysis <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart3_club/normal">
+            <img src="./assets/images/thumb4.png">
+            <h4 class="center">Ball Possession HeatMaps <br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart3_club/live">
+            <img src="./assets/images/thumb4.png">
+            <h4 class="center">Ball Possession HeatMaps <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart5_club/normal">
+            <img src="./assets/images/thumb5.png">
+            <h4 class="center">Player Ball Touch<br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart5_club/live">
+            <img src="./assets/images/thumb5.png">
+            <h4 class="center">Player Ball Touch <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart7_club/normal">
+            <img src="./assets/images/thumb7.png">
+            <h4 class="center">Player Passes <br/> (Replay - Club)</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart7_club/live">
+            <img src="./assets/images/thumb7.png">
+            <h4 class="center">Player Passes <br/> (Live - Club)</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart8_club/normal">
+                <img src="./assets/images/thumb8.png">
+                <h4 class="center">Match Facts <br/> (Replay - Club)</h4>
+              </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="thumb">
+          <a routerLink="/chart8_club/live">
+                <img src="./assets/images/thumb8.png">
+                <h4 class="center">Match Facts <br/> (Live - Club)</h4>
+              </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

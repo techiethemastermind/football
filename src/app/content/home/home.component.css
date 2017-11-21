@@ -1,0 +1,39 @@
+.thumb img{
+    width: 100%;
+}
+.thumb{
+    padding: 5px;
+    box-shadow: 0px 0px 1px 0px;
+}
+.thumb:hover{
+    box-shadow: 0px 0px 1px 1px;
+}
+.container{
+    margin-bottom: 30px;
+    min-height: 600px;
+}
+.row{
+    padding: 15px 0;
+}
+h4{
+    color: #369;
+    line-height: 25px;
+}
+a:hover{
+    text-decoration: none;
+}
+a img{
+    border: 1px solid #ccc;
+}
+input[type=radio]{
+    vertical-align: text-bottom;
+    margin-right: 10px;
+    height: 18px;
+    width: 16px;
+}
+input[type=radio]:hover{
+    cursor: pointer;
+}
+label{
+    font-size: 16px;
+}

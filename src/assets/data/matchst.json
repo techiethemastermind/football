@@ -1,0 +1,250 @@
+{
+  "attack_data": [
+    {
+      "key": "MANCHESTER UNITED",
+      "values": [
+        {
+          "label": "Goal",
+          "value": 14
+        },
+        {
+          "label": "Total Shots (including blocked shots)",
+          "value": 28
+        },
+        {
+          "label": "Shots On Target",
+          "value": 42
+        },
+        {
+          "label": "Blocked Shots",
+          "value": 14
+        },
+        {
+          "label": "Shots from outside the box",
+          "value": 28
+        },
+        {
+          "label": "Shots from inside the box",
+          "value": 42
+        },
+        {
+          "label": "Shot Accuracy (excluding blocked shots)",
+          "value": 42
+        }
+      ]
+    },
+    {
+      "key": "LIVERPOOL",
+      "values": [
+        {
+          "label": "Goal",
+          "value": 4
+        },
+        {
+          "label": "Total Shots (including blocked shots)",
+          "value": 8
+        },
+        {
+          "label": "Shots On Target",
+          "value": 22
+        },
+        {
+          "label": "Blocked Shots",
+          "value": 14
+        },
+        {
+          "label": "Shots from outside the box",
+          "value": 18
+        },
+        {
+          "label": "Shots from inside the box",
+          "value": 32
+        },
+        {
+          "label": "Shot Accuracy (excluding blocked shots)",
+          "value": 52
+        }
+      ]
+    }
+  ],
+  "play_data": [
+    {
+      "key": "MANCHESTER UNITED",
+      "values": [
+        {
+          "label": "Possession (%)",
+          "value": 4
+        },
+        {
+          "label": "Duels won (%)",
+          "value": 8
+        },
+        {
+          "label": "Aerial Duels Won (%)",
+          "value": 12
+        },
+        {
+          "label": "Interceptions",
+          "value": 14
+        },
+        {
+          "label": "Offsides",
+          "value": 18
+        },
+        {
+          "label": "Corners",
+          "value": 22
+        }
+      ]
+    },
+    {
+      "key": "LIVERPOOL",
+      "values": [
+        {
+          "label": "Possession ",
+          "value": 3
+        },
+        {
+          "label": "Duels won",
+          "value": 5
+        },
+        {
+          "label": "Aerial Duels Won (%)",
+          "value": 12
+        },
+        {
+          "label": "Interceptions",
+          "value": 9
+        },
+        {
+          "label": "Offsides",
+          "value": 18
+        },
+        {
+          "label": "Corners",
+          "value": 12
+        }
+      ]
+    }
+  ],
+  "distribution_data": [
+    {
+      "key": "MANCHESTER UNITED",
+      "values": [
+        {
+          "label": "Total Passes",
+          "value": 19
+        },
+        {
+          "label": "% of Passes Long",
+          "value": 14.5
+        },
+        {
+          "label": "Passing Accuracy (%)",
+          "value": 24.1
+        },
+        {
+          "label": "Passing Accuracy opp. Half (%)",
+          "value": 18.8
+        },
+        {
+          "label": "Total Crosses",
+          "value": 18
+        },
+        {
+          "label": "Successful Crosses (%)",
+          "value": 17.6
+        }
+      ]
+    },
+    {
+      "key": "LIVERPOOL",
+      "values": [
+        {
+          "label": "Total Passes",
+          "value": 4
+        },
+        {
+          "label": "% of Passes Long",
+          "value": 8
+        },
+        {
+          "label": "Passing Accuracy (%)",
+          "value": 12
+        },
+        {
+          "label": "Passing Accuracy opp. Half (%)",
+          "value": 14
+        },
+        {
+          "label": "Total Crosses",
+          "value": 18
+        },
+        {
+          "label": "Successful Crosses (%)",
+          "value": 22
+        }
+      ]
+    }
+  ],
+  "defence_data": [
+    {
+      "key": "MANCHESTER UNITED",
+      "values": [
+        {
+          "label": "Tackles",
+          "value": 23
+        },
+        {
+          "label": "Tackles Won (%)",
+          "value": 39.5
+        },
+        {
+          "label": "Clearances",
+          "value": 25
+        },
+        {
+          "label": "Fouls Conceded",
+          "value": 6
+        },
+        {
+          "label": "Yellow Cards",
+          "value": 5
+        },
+        {
+          "label": "Red Cards",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "key": "LIVERPOOL",
+      "values": [
+        {
+          "label": "Total Passes",
+          "value": 24
+        },
+        {
+          "label": "% of Passes Long",
+          "value": 38
+        },
+        {
+          "label": "Passing Accuracy (%)",
+          "value": 25
+        },
+        {
+          "label": "Passing Accuracy opp. Half (%)",
+          "value": 11
+        },
+        {
+          "label": "Total Crosses",
+          "value": 12
+        },
+        {
+          "label": "Successful Crosses (%)",
+          "value": 10
+        }
+      ]
+    }
+  ]
+}

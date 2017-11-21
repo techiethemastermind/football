@@ -1,0 +1,224 @@
+<div class="container" onresize="reSize()">
+  <div class="row center">
+    <h1 *ngIf="!displayType">Ball / Player Movement (Replay)</h1>
+    <h1 *ngIf="displayType">Ball / Player Movement (Live)</h1>
+  </div>
+  <div class="row graph-content">
+    <div class="action move-center" style="padding-top: 25px;">
+      <div class="col-xs-6 col-sm-6 col-md-6 left">
+        <div>
+          <label>Team: </label>
+          <select name="team-left" [(ngModel)]="selected_team.left" (change)="onChangeTeam('left')">
+            <option *ngFor="let team of teams" [value]="team.id" [attr.selected]="team.id==selected_team.left ? true : null" [attr.disabled]="team.id==selected_team.right ? true : null">{{team.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 no-padding">
+          <!-- shirt color -->
+          <label>Tshirt: </label>
+          <select name="color-left" [(ngModel)]="selected_color.left" (change)="onChangeColor('left')">
+            <option *ngFor="let color of colors" [value]="color.name" [attr.selected]="color.name==selected_color.left ? true : null"
+              [ngStyle]="{'background-color': color.value}" [attr.disabled]="color.name==selected_color.right ? true : null">{{color.name}}
+            </option>
+          </select>
+          <span class="color-rect" [ngStyle]="{'background-color': selected_color.leftVal}"></span>
+        </div>
+        <div class="col-md-6 no-padding">
+          <!-- font color -->
+          <label style="margin-left: 10px;">Font: </label>
+          <select [(ngModel)]="selected_color.left_font" (change)="onChangeColor('leftFont')">
+            <option *ngFor="let color of colors" [value]="color.name" [attr.selected]="color.name==selected_color.left_font ? true : null"
+              [ngStyle]="{'background-color': color.value}">{{color.name}}
+            </option>
+          </select>
+          <span class="color-rect" [ngStyle]="{'background-color': selected_color.leftVal_font}"></span>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 right">
+        <div>
+          <label>Team: </label>
+          <select name="team-right" [(ngModel)]="selected_team.right" (change)="onChangeTeam('right')">
+            <option *ngFor="let team of teams" [value]="team.id" [attr.selected]="team.id==selected_team.right ? true : null" [attr.disabled]="team.id==selected_team.left ? true : null">{{team.name}}</option>
+          </select>
+        </div>
+        <div class="col-md-6 no-padding">
+          <label>Tshirt: </label>
+
+          <!-- shirt color -->
+          <select name="color-right" [(ngModel)]="selected_color.right" (change)="onChangeColor('right')">
+            <option *ngFor="let color of colors" [value]="color.name" [attr.selected]="color.name==selected_color.right ? true : null"
+              [ngStyle]="{'background-color': color.value}" [attr.disabled]="color.name==selected_color.left ? true : null">{{color.name}}
+            </option>
+          </select>
+          <span class="color-rect" [ngStyle]="{'background-color': selected_color.rightVal}"></span>
+        </div>
+        <div class="col-md-6 no-padding">
+          <!-- font color -->
+          <label style="margin-left: 10px;">Font: </label>
+          <select [(ngModel)]="selected_color.right_font" (change)="onChangeColor('rightFont')">
+            <option *ngFor="let color of colors" [value]="color.name" [attr.selected]="color.name==selected_color.right_font ? true : null"
+              [ngStyle]="{'background-color': color.value}">{{color.name}}
+            </option>
+          </select>
+          <span class="color-rect" [ngStyle]="{'background-color': selected_color.rightVal_font}"></span>
+        </div>
+      </div>
+    </div>
+    <div class="graph-widget move-center">
+      <div id="tooltip" class="hidden">
+        <p>
+          <img src="">
+          <span id="name">100</span>
+        </p>
+        <p>Number:
+          <span id="number">100</span>
+        </p>
+        <p>Position:
+          <span id="pos">100</span>
+        </p>
+        <p>X:
+          <span id="posx">100</span>&nbsp;Y:
+          <span id="posy">100</span>
+        </p>
+        <p>
+          <span id="sub">Substitutes: No</span>
+        </p>
+      </div>
+      <svg id="football-yard" width="900" height="550">
+        <defs>
+          <pattern id="bg-1" patternUnits="userSpaceOnUse" height="52" width="52">
+            <image x="0" y="0" href="./assets/images/Pitch-Tile.jpg"></image>
+          </pattern>
+        </defs>
+        <g class="yard" stroke-width="2" stroke="rgb(238, 238, 238)" stroke-opacity="0.6" fill="none" transform="translate(50,25)">
+          <rect height="500" width="800" x="0" y="0" rx="0" ry="0" fill="green" stroke="none"></rect>
+          <rect height="60" width="5" x="5" y="220"></rect>
+          <rect height="60" width="5" x="790" y="220"></rect>
+          <g>
+            <text class="vs-text" x="400" y="50" text-anchor="middle" fill="white" stroke="none" style="font-size: 24px;">Movement</text>
+            <image class="team-left" height="65" width="65" x="20" y="20"></image>
+            <image class="team-right" height="65" width="65" x="715" y="20"></image>
+            <g class="txt-1" fill-opacity="0.5" stroke="none">
+              <text class="f1-txt" x="150" y="410" text-anchor="middle" fill="white" stroke="none" font-size="60px" font-weight="800">32%</text>
+              <text class="fm-txt" x="400" y="410" text-anchor="middle" fill="white" stroke="none" font-size="60px" font-weight="800">32%</text>
+              <text class="f2-txt" x="650" y="410" text-anchor="middle" fill="white" stroke="none" font-size="60px" font-weight="800">32%</text>
+            </g>
+          </g>
+          <g transform="translate(10,10)">
+            <rect height="480" width="780"></rect>
+            <path d="M 390 0 L 390 480"></path>
+            <path d="M 240 0 L 240 480" stroke-dasharray="18,15" stroke-width="3"></path>
+            <path d="M 540 0 L 540 480" stroke-dasharray="18,15" stroke-width="3"></path>
+            <circle cx="390" cy="240" r="80"></circle>
+            <rect height="300" width="120" x="0" y="90"></rect>
+            <rect height="300" width="120" x="660" y="90"></rect>
+            <rect height="120" width="50" x="0" y="180"></rect>
+            <rect height="120" width="50" x="730" y="180"></rect>
+            <path d="M 120 200 A 60 60 0 0 1 120 300"></path>
+            <path d="M 660 200 A 60 60 0 0 0 660 300"></path>
+            <path d="M 10 0 A 10 10 0 0 1 0 10"></path>
+            <path d="M 770 0 A 10 10 0 0 0 780 10"></path>
+            <path d="M 0 470 A 10 10 0 0 1 10 480"></path>
+            <path d="M 780 470 A 10 10 0 0 0 770 480"></path>
+            <g>
+              <image class="ball" height="20" width="20" xlink:href="./assets/images/ball-50.png" x="380" y="230"></image>
+              <g class="players_left"></g>
+              <g class="players_right"></g>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <svg id="football-bar" width="800" height="50" fill="#555">
+        <g class="bar-1" fill-opacity="0.9" stroke="none">
+          <rect class="left-bar" width="400" height="50" x="0" y="0" fill="#ff4500"></rect>
+          <rect class="right-bar" width="400" height="50" x="400" y="0" fill="#87ceeb"></rect>
+          <text class="left-txt" x="200" y="35" text-anchor="middle" fill="white" stroke="none" font-size="30px" font-weight="800">50%</text>
+          <text class="right-txt" x="600" y="35" text-anchor="middle" fill="white" stroke="none" font-size="30px" font-weight="800">50%</text>
+        </g>
+      </svg>
+      <div class="bottom-action" (mousemove)="onmousemove($event)">
+        <div class="time-action move-center">
+          <div class="row action">
+            <div class="col-md-4">
+              <div class="live-time" style="color: white;">
+                <h4 *ngIf="!displayType" class="center">Replay Mode:</h4>
+                <h4 *ngIf="displayType" class="center">Live Mode:</h4>
+              </div>
+              <div class="play" *ngIf="displayType">
+                <img src="{{ctrlImageUrl}}" (click)="ctrlRealTime()">
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="live-time col-md-12">
+                <div class="col-md-12 center">
+                  <span>Game Time: {{temp.livetime}}</span>
+                </div>
+                <div class="col-md-6">
+                  <span *ngIf="!displayType">Simulation Mode: Replay</span>
+                  <span *ngIf="displayType">Simulation Mode: Live</span>
+                  <br />
+                  <span>Game Status: {{temp.gamepos}}</span>
+                  <br />
+                </div>
+                <div class="col-md-6" *ngIf="!displayType">
+                  <span>First Extra: {{sliderFirstExtra}} Mins</span>
+                  <br />
+                  <span>Second Extra: {{sliderSecondExtra}} Mins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clear-fix"></div>
+          <div *ngIf="!displayType">
+            <div class="time-slider first">
+              <div (click)="onSliderClick($event, 'first')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderFirstExtra * firstSliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderFirstLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderFirstLeft - 13 + 'px'}" (mouseup)="onmouseup($event, 'first')" (mousedown)="onmousedown($event, 'first')">
+                <span class="selected-time">{{sliderFirstValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderFirstExtra}} Min</span>
+              </div>
+            </div>
+            <div class="time-slider second">
+              <div (click)="onSliderClick($event, 'second')">
+                <div class="time-bar noSelected">&nbsp;</div>
+                <div class="time-bar extra" [ngStyle]="{'width': sliderSecondExtra * secondsliderRatio + 'px'}"></div>
+                <div class="time-bar selected" [ngStyle]="{'width': sliderSecondLeft + 'px'}">&nbsp;</div>
+                <div class="time-bar-bottom">&nbsp;</div>
+              </div>
+              <div class="time-selector" [ngStyle]="{'left': sliderSecondLeft - 13 + 'px'}" (mouseup)="onmouseup($event, 'sencond')" (mousedown)="onmousedown($event, 'second')">
+                <span class="selected-time">{{sliderSecondValue}}</span>
+              </div>
+              <div class="time-fix">
+                <span class="left-show">0 Min</span>
+                <span class="mid-show"> 22.5 Min</span>
+                <span class="right-show">{{ 45 + sliderSecondExtra}} Min</span>
+              </div>
+            </div>
+          </div>
+          <!--
+          <div class="clear-fix"></div>
+          <div class="row" style="width: 800px;margin-left: -20px;">
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('Full')">Full Game</button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('First')">First Half Game</button>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-custom" (click)="quickSel('Second')">Second Half Game</button>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

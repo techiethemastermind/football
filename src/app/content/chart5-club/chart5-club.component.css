@@ -1,0 +1,242 @@
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.move-center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.widget{
+    float: left;
+}
+.chart5-wrap{
+    max-width: 940px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 3px;
+}
+.chart5{
+    max-width: 500px;
+    width: 100%;
+}
+.chart5 svg{
+    position: relative;
+}
+.team{
+    min-width: 180px;
+    width: 180px;
+    color: #00547e;
+}
+.team-left{
+    margin-right: 20px;
+}
+.team-right{
+    margin-left: 20px;
+}
+.team-selector{
+    margin-bottom: 20px;
+}
+.team-selector select{
+    max-width: 130px;
+    width: 100%;
+}
+.team-selector input[type='checkbox']{
+    vertical-align: top;
+}
+.player ul{
+    list-style: none;
+    -webkit-padding-start: 15px;
+}
+.player ul li{
+    line-height: 30px;
+    cursor: pointer;
+    padding-left: 5px;
+    margin: 5px 0;
+}
+.player ul li:hover{
+    box-shadow: 0 0 1px 0;
+}
+/*
+.player ul li:before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    border: 1px solid;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+*/
+.player-rect{
+    width: 15px;
+    height: 15px;
+    border: 1px solid;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+input[type=radio]{
+    margin-top: 10px;
+}
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+.clear-fix{
+    clear: both;
+}
+.btn.btn-custom{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #91d2ed;
+    color: #000;
+    font-size: 16px;
+}
+.play{
+    margin-top: 10px;
+    text-align: center;
+}
+.play img{
+    cursor: pointer;
+}
+.extra{
+    right: 0px;
+    background-color: #faebd7;
+    border-left: 1px solid #4b9824;
+}
+
+#tooltip {
+    position: fixed;
+    width: 180px;
+    height: auto;
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 100;
+}
+.arrow-right {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    transform: rotate(45deg);
+    top: 36px;
+    left: 165px;
+    z-index: -1;
+}
+.arrow-left {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    transform: rotate(45deg);
+    top: 36px;
+    left: -5px;
+    z-index: -1;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+#tooltip p img{
+    padding-right: 10px;
+}
+
+.mob-action {
+    display: none;
+}
+.mob-action {
+    padding: 10px 0;
+    background-color: #f0f8ff;
+    position: relative;
+    z-index: 100;
+}
+.mob-left-team {
+    display: none;
+}
+.mob-left-team {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+    color: #fff !important;
+    padding: 30px;
+    width: 230px !important;
+    top: 0;
+    left: 0;
+}
+.mob-right-team {
+    display: none;
+}
+.mob-right-team {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+    color: #fff !important;
+    padding: 30px;
+    width: 230px !important;
+    top: 0;
+    right: 0;
+}
+.team select {
+    color: #00547e;
+}
+@media screen and (max-width: 955px) {
+    .team {
+        display: none;
+    }
+    .widget.chart5 {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .mob-action {
+        display: block;
+    }
+    .mob-left-team {
+        display: block;
+    }
+    .mob-right-team {
+        display: block;
+    }
+    #tooltip{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 460px) {
+    .time-slider {
+        margin-right: 0 !important;
+    }
+}
+@media screen and (max-width: 520px){
+    .chart5-wrap{
+        padding: 12px;
+    }
+}

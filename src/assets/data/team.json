@@ -1,0 +1,8 @@
+{
+  "team": {
+    "values": [
+      {"id": 1, "name": "Manchester City", "key": "machester_city"},
+      {"id": 2, "name": "Chelsea", "key": "chelsea"}
+    ]
+  }
+}

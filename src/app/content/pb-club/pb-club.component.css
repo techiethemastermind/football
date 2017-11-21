@@ -1,0 +1,134 @@
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.move-center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.action{
+    padding: 10px 0 10px;
+    max-width: 800px;
+    width: 100%;
+    float: left;
+    color: #396699;
+    line-height: 33px;
+}
+.action form{
+    color: #fff;
+    border: 1px solid #d9edf7;
+}
+.action select{
+    min-width: 80px;
+}
+.graph-widget{
+    max-width: 900px;
+    width: 100%;
+}
+.graph-content{
+    /*background-color: #f0f8ff;*/
+    padding: 0px 0px 30px;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+}
+.players_left g{
+    cursor: pointer;
+}
+.players_right g{
+    cursor: pointer;
+}
+
+#tooltip {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    opacity: 0.8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 99;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+#tooltip p img{
+    padding-right: 10px;
+}
+
+input[type=radio]{
+    margin-top: 10px;
+}
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+.clear-fix{
+    clear: both;
+}
+.btn.btn-custom{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #91d2ed;
+    color: #000;
+    font-size: 16px;
+}
+.play{
+    margin-top: 10px;
+}
+.play img{
+    cursor: pointer;
+}
+.extra{
+    right: 0px;
+    background-color: #faebd7;
+    border-left: 1px solid #4b9824;
+}
+.color-rect{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+}
+
+.no-padding{
+    padding: 0;
+}
+@media screen and (max-width: 400px) {
+    .action .right{
+        text-align: left;
+    }
+}
+@media screen and (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+    }
+}
+@media screen and (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
+}

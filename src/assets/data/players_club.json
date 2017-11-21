@@ -1,0 +1,34 @@
+{
+  "team_a": [
+    { "player_id": 1, "number": 1, "name": "Preston Edwards", "position_type": "Goalkeeper", "is_sub": 0 },
+    { "player_id": 2, "number": 2, "name": "Marc Weatherstone", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 3, "number": 3, "name": "Nathan Green", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 4, "number": 4, "name": "Ibrahim Kargbo", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 5, "number": 5, "name": "Gustavo Ferraz", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 6, "number": 6, "name": "Rickie Hayles", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 7, "number": 7, "name": "Michael Chambers", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 8, "number": 8, "name": "Anthony Acheampong", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 9, "number": 9, "name": "Quade Taylor", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 10, "number": 10, "name": "Sanchez Ming", "position_type": "Forward", "is_sub": 0 },
+    { "player_id": 11, "number": 11, "name": "Caio Guimares", "position_type": "Forward", "is_sub": 0 },
+    { "player_id": 12, "number": 12, "name": "Ralph Kottoy", "position_type": "Forward", "is_sub": 1 },
+    { "player_id": 13, "number": 13, "name": "Jeff Goulding", "position_type": "Forward", "is_sub": 1 },
+    { "player_id": 14, "number": 14, "name": "Gavin Tomlin", "position_type": "Forward", "is_sub": 1 }
+  ],
+  "team_b": [
+    { "player_id": 1, "number": 1, "name": "Ashley Carew", "position_type": "Goalkeeper", "is_sub": 0 },
+    { "player_id": 2, "number": 2, "name": "Dumebi Dumaka", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 3, "number": 3, "name": "Nyren Clunis", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 4, "number": 4, "name": "Jamie Mascoll", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 5, "number": 5, "name": "Daniel Abbotts", "position_type": "Defender", "is_sub": 0 },
+    { "player_id": 6, "number": 6, "name": "Olawale Agbolade", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 7, "number": 7, "name": "Henry Awokere", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 8, "number": 8, "name": "Hassan Bangura", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 9, "number": 9, "name": "Adrian Brown", "position_type": "Midfielder", "is_sub": 0 },
+    { "player_id": 10, "number": 10, "name": "Quade Taylor", "position_type": "Forward", "is_sub": 0 },
+    { "player_id": 11, "number": 11, "name": "Nyren Clunis", "position_type": "Forward", "is_sub": 0 },
+    { "player_id": 12, "number": 12, "name": "Ralph Kottoy", "position_type": "Forward", "is_sub": 1 },
+    { "player_id": 13, "number": 13, "name": "Gavin Tomlin", "position_type": "Forward", "is_sub": 1 },
+    { "player_id": 14, "number": 14, "name": "Michael Chambers", "position_type": "Forward", "is_sub": 1 }
+  ]
+}
