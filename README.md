@@ -2,6 +2,12 @@
 
 An Angular 2 project for analyzing and visualizing football game situations using data from sport API providers. The project includes simulation features using D3.js for dynamic visual representations of game scenarios.
 
+![Football Visualization_1](/src/assets/images/thumb1.png)
+![Football Visualization_2](/src/assets/images/thumb2.png)
+![Football Visualization_3](/src/assets/images/thumb3.png)
+![Football Visualization_8](/src/assets/images/thumb8.png)
+
+
 ## Features
 
 - **Data Integration:** Fetch real-time football game data from sport API providers to analyze game situations.
